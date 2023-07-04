@@ -23,8 +23,8 @@ model.add(Dropout(0.25))
 
 model.add(Convolution2D(64, 3, 3, padding='same'))
 model.add(Activation('relu'))
-model.add(Convolution2D(64, 3, 3))
-model.add(MaxPooling2D(pool_size=(2, 2)))
+# model.add(Convolution2D(64, 3, 3))
+# model.add(MaxPooling2D(pool_size=(1, 1)))
 model.add(Dropout(0.25))
 
 model.add(Flatten())
@@ -36,7 +36,7 @@ model.add(Activation('softmax'))
 
 model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
-model.fit(X_train, y_train, batch_size=32, epochs=50)
+model.fit(X_train, y_train, batch_size=32, epochs=100)
 
 score = model.evaluate(X_test, y_test)
 print(f'loss={score[0]}')
